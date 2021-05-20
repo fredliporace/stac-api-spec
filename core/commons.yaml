@@ -716,7 +716,9 @@ components:
       - $ref: "#/components/schemas/multilinestringGeoJSON"
       - $ref: "#/components/schemas/polygonGeoJSON"
       - $ref: "#/components/schemas/multipolygonGeoJSON"
-      - $ref: "#/components/schemas/geometrycollectionGeoJSON"
+      # This creates a circular definition since geometrycollectionGeoJSON
+      # includes an array of geometryGeoJSON
+      # - $ref: "#/components/schemas/geometrycollectionGeoJSON"
     geometrycollectionGeoJSON:
       type: object
       required:
